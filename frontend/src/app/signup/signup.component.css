@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.header{
+  width: 100%;
+}
+.footer{
+  width: 100%;
+}
+
+.wrapper{
+  margin: auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10em;
+  align-items: center;
+} 
+.container{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+
+form {
+  width: 40%;
+    display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2em;
+  background: #fff;
+}
+.password-container{
+    width: 70%;
+}
+h2 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.input-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+  margin-bottom: 20px;
+  border-color: #2575fc;
+
+}
+
+.input-box label {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.input-box input:focus {
+  border-color: #fc2525;
+  outline: none;
+}
+
+.input-box input:valid {
+  border-color: #1d9e4f;
+}
+
+.error-message {
+  font-size: 14px;
+  color: #ff4d4d;
+  margin-top: 5px;
+}
+
+.policy {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.policy input {
+  margin-right: 10px;
+}
+
+.policy label {
+  font-size: 14px;
+  color: #555;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  background: linear-gradient(90deg, #4070f4, #0e4bf1);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #0e4bf1, #4070f4);
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+button:focus {
+  outline: none;
+}
+
+.input-box.button {
+  margin-top: 20px;
+}

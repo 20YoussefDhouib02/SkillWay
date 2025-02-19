@@ -1,0 +1,94 @@
+<div class="wrapper">
+  <app-header class="header"></app-header>
+<div class="container">
+<form (ngSubmit)="onSubmit()">
+  <div class="field">
+    <div class="input-box">
+        <img src='assets/images/user.png' class="input-icon"  width="20px" height="20px"/>
+      <input
+        type="text"
+        [(ngModel)]="name"
+        name="name"
+        placeholder="Name"
+        required
+      /></div>
+      <div *ngIf="nameError" class="error-message">{{ nameError }}</div>
+    </div>
+    <div class="field">
+    <div class="input-box">
+      <img src='assets/images/email.png' class="input-icon"  width="20px" height="20px"/>
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        placeholder="Email"
+        required
+      /></div>
+      <div *ngIf="emailError" class="error-message">{{ emailError }}</div>
+    </div>    
+    <div class="field">
+      <div class="input-box">
+        <img src='assets/images/password.png' alt="user icon" class="input-icon" width="20px" height="20px" />
+        <input
+          [type]="passwordVisible ? 'text' : 'password'"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <img
+          [src]="passwordVisible ? 'assets/images/hide.png' : 'assets/images/show.png'"
+          width="20px"
+          height="20px"
+          alt="toggle visibility"
+          (click)="togglePasswordVisibility()"
+          class="password-toggle-icon"
+        />
+      </div>
+      <div *ngIf="passwordError" class="error-message">{{ passwordError }}</div>
+    </div>
+    
+    <div class="field">
+      <div class="input-box">
+        <img src='assets/images/password2.png' alt="user icon" class="input-icon" width="20px" height="20px" />
+        <input
+          [type]="passwordVisible ? 'text' : 'password'"
+          [(ngModel)]="confirmPassword"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          required
+        />
+      </div>
+      <div *ngIf="confirmPasswordError" class="error-message">{{ confirmPasswordError }}</div>
+    
+      <div 
+        *ngIf="password && confirmPassword" 
+        [style.color]="password !== confirmPassword ? 'red' : 'green'"
+        class="mt-2"
+      >
+        {{ password !== confirmPassword ? 'Passwords do not match' : 'Passwords match' }}
+      </div>
+    </div>
+    
+    <div class="policy">
+      <input
+        type="checkbox"
+        [(ngModel)]="terms"
+        name="terms"
+        required
+      />
+      <label for="terms">I accept the terms and conditions</label>
+    </div>
+    
+    <div class="input-box button">
+        <button type="submit" [disabled]="!terms || password !== confirmPassword">Submit</button>
+    </div>
+    <p>Already have an account? <a routerLink="/login">Login</a></p>
+
+  </form>
+  <img class="image" src='assets/images/roadmap.avif' />
+</div>
+<app-footer class="footer"></app-footer>
+</div>
+
+  

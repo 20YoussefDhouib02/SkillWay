@@ -1,0 +1,82 @@
+<div class="wrapper">
+    <app-header class="header"></app-header>
+    <div class="container">
+      <form (ngSubmit)="onSubmit()">
+        <!-- Current Password Field -->
+        <div class="field">
+          <div class="input-box">
+            <img src="assets/images/password.png" alt="password icon" class="input-icon" width="20px" height="20px" />
+            <input
+              [type]="passwordVisible ? 'text' : 'password'"
+              [(ngModel)]="currentPassword"
+              name="currentPassword"
+              placeholder="Current Password"
+              required
+            />
+            <img
+              [src]="passwordVisible ? 'assets/images/hide.png' : 'assets/images/show.png'"
+              width="20px"
+              height="20px"
+              alt="toggle visibility"
+              (click)="togglePasswordVisibility()"
+              class="password-toggle-icon"
+            />
+          </div>
+          <div *ngIf="currentPasswordError" class="error-message">{{ currentPasswordError }}</div>
+        </div>
+  
+        <!-- New Password Field -->
+        <div class="field">
+          <div class="input-box">
+            <img src="assets/images/password.png" alt="password icon" class="input-icon" width="20px" height="20px" />
+            <input
+              [type]="passwordVisible ? 'text' : 'password'"
+              [(ngModel)]="newPassword"
+              name="newPassword"
+              placeholder="New Password"
+              required
+            />
+            <img
+              [src]="passwordVisible ? 'assets/images/hide.png' : 'assets/images/show.png'"
+              width="20px"
+              height="20px"
+              alt="toggle visibility"
+              (click)="togglePasswordVisibility()"
+              class="password-toggle-icon"
+            />
+          </div>
+          <div *ngIf="newPasswordError" class="error-message">{{ newPasswordError }}</div>
+          <p>{{response}}</p>
+        </div>
+
+      
+          
+  
+        <!-- Save Changes Button -->
+        <div class="input-box button">
+          <button type="submit">Change Password</button>
+        </div>
+        <div class="field">
+            <div class="input-box upload-label">
+              <label for="profileImageUrl" class="">
+            </label>   
+              <input
+              type="text"
+              id="profileImageUrl"
+              name="profileImageUrl"
+              [(ngModel)]="profileImageUrl"
+              placeholder="Enter image URL"
+              class="image-url-input"
+            />       
+            </div>
+          </div>
+      </form>
+      <div class="image">
+        <img [src]="profileImageUrl" alt="upload icon" class="input-icon" width="400px" height="400px" />
+        <button type="submit" (click)="uploadProfilePicture()">Upload Picture</button>
+    </div>
+    
+
+    </div>
+    <app-footer class="footer"></app-footer>
+  </div>

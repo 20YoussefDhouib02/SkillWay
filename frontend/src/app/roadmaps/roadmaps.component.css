@@ -1,0 +1,85 @@
+.container{
+    background-color: #040725;
+    margin: auto;
+}
+
+ul{
+    margin: auto;
+    max-width:  800px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+
+}
+li {
+    list-style-type: none  ;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    border-radius: 0.3rem;
+    background-color:#c3c6e60a ;
+    color: rgba(255, 255, 255, 0.678);;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    border: 0.01rem rgba(128, 128, 128, 0.37) solid;
+    transition: border 0.3s ease, transform 0.3s ease;
+}
+
+   
+li:hover {
+    border: 0.01rem rgba(238, 223, 223, 0.89) solid;
+
+
+   }
+   .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+  }
+  .divider h4{
+    padding: 0.5rem 2rem;
+    text-align: center;
+    border-radius: 1rem;
+    color: rgba(255, 255, 255, 0.712);;
+    border: 0.01rem rgba(128, 128, 128, 0.37) solid;
+  }
+  
+  .divider::before, .divider::after {
+    flex: 1;
+    content: '';
+    padding: 1px;
+    background-color: rgba(128, 128, 128, 0.37);
+  }
+.roadmaps-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 4rem;
+    margin-top: 5rem;
+}
+.roadmaps-intro p{
+    color: rgba(255, 255, 255, 0.678);;
+    width: 44%;
+    line-height: 2rem;
+    font-size: 1.4rem;
+    font-family: 'Lora';
+    letter-spacing: 1px;
+}
+.roadmaps-intro h1{
+    background: conic-gradient(from 315deg, #DBC84A, #F6F796);    
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    
+    font-family: 'Tektur';
+
+}
+
+
+

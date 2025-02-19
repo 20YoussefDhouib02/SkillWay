@@ -1,0 +1,28 @@
+<div class="container">
+    <app-header class="header"></app-header>
+    
+    <!-- AI Helper Section -->
+    <div class="ai-helper">
+      <div class="ai-input-container">
+        <input 
+          type="text" 
+          [(ngModel)]="userPrompt" 
+          placeholder="Enter a skill you'd like to acquire (e.g., C++ development)"
+          (keyup.enter)="sendPrompt()"
+        >
+        <button (click)="sendPrompt()" [disabled]="!userPrompt || isLoading">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Chat Output Section -->
+    <div class="chat-output">
+      <p *ngIf="isLoading">Loading...</p>
+      <!-- Render the transformed HTML with innerHTML -->
+      <div *ngIf="!isLoading && transformedResponse" class="chat-text" [innerHTML]="transformedResponse"></div>
+    </div>
+    
+    <app-footer id="footer"></app-footer>
+  </div>
+  

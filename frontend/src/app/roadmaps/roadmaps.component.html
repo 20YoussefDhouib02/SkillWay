@@ -1,0 +1,27 @@
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<div class="container">
+  <app-header class="header"></app-header>
+  <div class="roadmaps-intro">
+    <h1>SkillWay's Roadmaps</h1>
+    <p>Explore structured learning paths designed to guide you step by step in mastering various fields. Whether you're a beginner or an expert, find the roadmap that fits your journey.</p>
+</div>
+<div class="divider" ><h4>Roadmaps</h4></div>
+
+
+  <ul   > 
+    <li *ngFor="let roadmap of roadmaps"  
+    [routerLink]="['/roadmap', roadmap.name, roadmap.id]"
+    target="_blank"  
+    class="glowing-card">
+    
+    <i [class]="roadmap.icon"></i>  
+    {{ roadmap.id }} {{ roadmap.name }}
+  </li>
+    </ul>
+    <app-footer id="footer"></app-footer>
+  </div>

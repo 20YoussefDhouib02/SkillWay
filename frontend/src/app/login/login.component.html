@@ -1,0 +1,59 @@
+<div class="wrapper">
+  <app-header class="header"></app-header>
+
+  <div class="container">
+    
+    <form (ngSubmit)="onSubmit()">
+
+      <!-- Email Field -->
+      <div class="field">
+        <div class="input-box">
+          <img src='assets/images/email.png' class="input-icon" width="20px" height="20px" />
+          <input
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+        <!-- Display Email Error Message Here -->
+        <div *ngIf="emailError" class="error-message">{{ emailError }}</div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="field">
+        <div class="input-box">
+          <img src='assets/images/password.png' alt="user icon" class="input-icon" width="20px" height="20px" />
+          <input
+            [type]="passwordVisible ? 'text' : 'password'"
+            [(ngModel)]="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <img
+            [src]="passwordVisible ? 'assets/images/hide.png' : 'assets/images/show.png'"
+            width="20px"
+            height="20px"
+            alt="toggle visibility"
+            (click)="togglePasswordVisibility()"
+            class="password-toggle-icon"
+          />
+        </div>
+        <!-- Display Password Error Message Here -->
+        <div *ngIf="passwordError" class="error-message">{{ passwordError }}</div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="input-box button">
+        <button type="submit" [disabled]="!email || !password">Login</button>
+      </div>
+      <p>Don't have an account? <a routerLink="/signup">Create one</a></p>
+    </form>
+
+    <img class="image" src='assets/images/roadmap.avif' />
+  </div>
+
+  <app-footer class="footer"></app-footer>
+</div>

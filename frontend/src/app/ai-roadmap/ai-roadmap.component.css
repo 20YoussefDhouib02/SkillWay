@@ -1,0 +1,224 @@
+/* AI Helper & Input Styles */
+.ai-helper {
+    padding: 2rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .ai-input-container {
+    display: flex;
+    gap: 0.5rem;
+    background: white;
+    border-radius: 1rem;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+  }
+  
+  .ai-input-container input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1rem;
+  }
+  
+  .ai-input-container button {
+    background: #10a37f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .ai-input-container button:disabled {
+    background: #d1d5db;
+    cursor: not-allowed;
+  }
+  
+  .ai-input-container button i {
+    font-size: 1.2rem;
+  }
+  
+  /* Global Resets & Container Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    background-color: #040725;
+    margin: auto;
+  }
+  
+  .wrapper {
+    margin-top: 4rem;
+  }
+  
+  h1 {
+    font-family: 'Tektur';
+    text-align: center;
+    color: #DBC84A;
+    margin-bottom: 0;
+  }
+  
+  /* Optional List & Details Styles (if used elsewhere) */
+  ul {
+    margin: auto;
+    max-width: 60vw;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 5rem;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+  }
+  
+  li h5 {
+    padding: 0.8rem;
+    width: 220px;
+    text-align: center;
+    list-style-type: none;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    background-color: #c3c6e60a;
+    color: rgba(255, 255, 255, 0.678);
+    cursor: pointer;
+    transition: border 0.3s ease, transform 0.3s ease;
+    border: 0.01rem rgba(128, 128, 128, 0.37) solid;
+  }
+  
+  li h5:hover {
+    border: 0.01rem rgba(238, 223, 223, 0.89) solid;
+  }
+  
+  .details-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30vw;
+    height: 100vh;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    overflow-y: auto;
+    display: block;
+    transition: 0.5s ease-in;
+  }
+  
+  .roadmap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .roadmap i {
+    font-size: 3rem;
+    color: white;
+  }
+  
+  .dimmer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow-y: auto;
+    display: block;
+    opacity: 0.6;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .details-window h2 {
+    color: #2e3de2;
+    font-family: 'Tektur';
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .details-window p {
+    font-family: 'Lora';
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    text-align: center;
+    color: #040725;
+    padding: 2rem;
+  }
+  
+  .details-window h3 {
+    color: #040725;
+    font-family: 'Tektur';
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .details-window ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .details-window ul li a {
+    text-decoration: none;
+    color: #040725;
+  }
+  
+  .details-window ul li {
+    font-size: 0.9em;
+    border: 0.01em solid grey;
+    border-radius: 6px;
+    padding: 0.5em;
+    box-shadow: 4px 4px 10px grey;
+  }
+  
+  /* Chat Output Specific Styles */
+  .chat-output {
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 1rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1rem;
+    color: #040725;
+  }
+  
+  /* Optional: preserve whitespace if needed */
+  .chat-text {
+    /* white-space: pre-wrap;  -- Not needed now since <br> tags handle line breaks */
+  }
+  
