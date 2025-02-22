@@ -170,6 +170,11 @@ li h5:hover {
   cursor: pointer;
 }
 
+i.fa-solid.fa-download:hover{
+  color:#DBC84A;
+  transition: ease 0.5s;
+}
+
 .done-container label {
   cursor: pointer;
   font-family: 'Tektur';

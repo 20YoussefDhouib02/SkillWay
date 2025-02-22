@@ -70,15 +70,6 @@
       </div>
     </div>
     
-    <div class="policy">
-      <input
-        type="checkbox"
-        [(ngModel)]="terms"
-        name="terms"
-        required
-      />
-      <label for="terms">I accept the terms and conditions</label>
-    </div>
     
     <div class="input-box button">
         <button type="submit" [disabled]="!terms || password !== confirmPassword">Submit</button>
