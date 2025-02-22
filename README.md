@@ -67,11 +67,11 @@ SkillWay is an e-learning platform designed to guide learners through detailed, 
 
 ### Database Setup (MySQL)
 1. Install and launch MySQL.
-2. Create a new database (e.g., `SkillWay`) using MySQL CMD:
+2. Note your MySQL username and password for configuration.
+3. Create a new database (e.g., `SkillWay`) using MySQL CMD:
    ```sql
    CREATE DATABASE SkillWay;
    ```
-3. Note your MySQL username and password for configuration.
 
 
 ### Backend Setup (Apache Maven)
@@ -114,7 +114,7 @@ SkillWay is an e-learning platform designed to guide learners through detailed, 
    ```bash
    ng serve
    ```
-The application will be available at `http://localhost:4200`
+The application will be available at `http://localhost:4200`.
 
 ### Additional Setup
 1. Open the MySQL Command Line Client and entter your password.
@@ -122,7 +122,7 @@ The application will be available at `http://localhost:4200`
    ```sql
    USE SkillWay;
    ```
-3. Enter the `3` commands located in `mysql_commands.txt` in the specified order.
+3. Enter the **3** commands located in `mysql_commands.txt` in the specified order.
 
 ## Usage
 Once the application is running, you can:
