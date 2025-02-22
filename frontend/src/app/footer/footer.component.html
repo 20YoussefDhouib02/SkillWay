@@ -19,7 +19,7 @@
         <h4>Roadmaps We Offer</h4>
         <ul class="roadmapex">
           <li *ngFor="let roadmap of roadmaps">
-            <a [routerLink]="['/roadmap', roadmap.name]">{{ roadmap.name }} Roadmap</a>
+            <a [routerLink]="['/roadmap', roadmap.name,roadmap.id]">{{ roadmap.name }} Roadmap</a>
           </li>
         </ul>
         

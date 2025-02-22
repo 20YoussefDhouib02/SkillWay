@@ -1,3 +1,4 @@
+
 <header>
   <nav>
     <a routerLink="/" class="logo">SKILLWAY</a>
@@ -16,18 +17,31 @@
         <a href="#">Services ▼</a>
         <ul class="dropdown-content">
           <li><a [routerLink]="['/favorites']">Bookmark Roadmaps</a></li>
-          <li><a href="#">Track Progress</a></li>
+          <li><a [routerLink]="['/track-way']">Track Progress</a></li>
           <li><a [routerLink]="['/ai-skill']">AI Skill</a></li>
         </ul>
       </li>
       <li><a href="#footer">Contact Us</a></li>
     </ul>
    
-    <img [src]="profilePicture" *ngIf="username" class="user-pic" (click)="toggleMenu()">
+    <div class="user-container" *ngIf="username" (click)="toggleMenu()">
+      <img *ngIf="profilePicture; else defaultImage" [src]="profilePicture" class="user-pic" >
+      
+      <ng-template #defaultImage>
+        <img [src]="'https://avatar.iran.liara.run/public/boy?username=username'" class="user-pic" >
+      </ng-template>
+      
+      <span class="username">{{ username }}</span>
+    </div>
+
     <div class="sub-menu-wrap" id="sub-menu" #submenu>
   <div class="sub-menu">
     <div class="user-info">
-      <img [src]="profilePicture" *ngIf="username != null "  class="user-pic">
+      <img *ngIf="username && profilePicture; else defaultImage" [src]="profilePicture" class="user-pic" (click)="toggleMenu()">
+
+<ng-template #defaultImage>
+  <img *ngIf="username" src="https://avatar.iran.liara.run/public/boy?username=username" class="user-pic" (click)="toggleMenu()">
+</ng-template>
       <h2>{{username}}</h2>
     </div>
     <hr>
@@ -36,7 +50,7 @@
           <p (click)="navigateToProfile()">Edit Profile</p>
           <i class="arrow" class="fa-solid fa-chevron-right"></i>  
           </a>
-    <a class="sub-menu-link">
+    <a class="sub-menu-link" [routerLink]="['/favorites']" style="color:black">
       <i class="fa-solid fa-star"></i>      <p> Fav Roadmaps</p>
       <i class="arrow" class="fa-solid fa-chevron-right"></i>    </a>
     <a class="sub-menu-link">

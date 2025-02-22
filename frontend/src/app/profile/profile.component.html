@@ -56,25 +56,22 @@
         <div class="input-box button">
           <button type="submit">Change Password</button>
         </div>
-        <div class="field">
-            <div class="input-box upload-label">
-              <label for="profileImageUrl" class="">
-            </label>   
-              <input
-              type="text"
-              id="profileImageUrl"
-              name="profileImageUrl"
-              [(ngModel)]="profileImageUrl"
-              placeholder="Enter image URL"
-              class="image-url-input"
-            />       
-            </div>
-          </div>
+
       </form>
       <div class="image">
-        <img [src]="profileImageUrl" alt="upload icon" class="input-icon" width="400px" height="400px" />
-        <button type="submit" (click)="uploadProfilePicture()">Upload Picture</button>
-    </div>
+        <img 
+          [src]="profileImageUrl || profilePicture || 'https://avatar.iran.liara.run/public/boy?username=username'" 
+          alt="User Profile" 
+          class="input-icon" 
+          width="400px" 
+          height="400px" 
+        />
+        <!-- HTML Template -->
+<button type="button" (click)="fileInput.click()" class="upload-button">
+  Upload Picture
+</button>
+<input #fileInput type="file" accept="image/*" (change)="uploadProfilePicture($event)" hidden>
+      </div>
     
 
     </div>

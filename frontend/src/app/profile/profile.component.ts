@@ -25,6 +25,8 @@ export class ProfileComponent implements OnInit {
   profileImageError: string | null = null; // For error message
   currentPasswordError: string = '';
   newPasswordError: string = '';
+  username: any ; 
+  profilePicture:any;
 
   constructor(private authService: AuthService, private router: Router,private http: HttpClient) {}
 
@@ -37,7 +39,8 @@ export class ProfileComponent implements OnInit {
     // Call the AuthService to fetch user data
     this.authService.getUserData().subscribe({
       next: (response: any) => {
-
+        this.username = response.name;
+        this.profilePicture = response.profilePicture;
       },
       error: (error) => {
         console.error('Error fetching user data:', error);
@@ -49,18 +52,24 @@ export class ProfileComponent implements OnInit {
     this.passwordVisible = !this.passwordVisible;
   }
 
-  uploadProfilePicture() {
-    const url = 'http://localhost:8081/api/auth/upload-profile-pic'; // Fixed URL
-    const body = { profilePicture: this.profileImageUrl };
+  uploadProfilePicture(event: any) {
+    const file = event.target.files[0];
+    
+    if (file) {
+      const formData = new FormData();
+      formData.append('file', file);
   
-    this.http.post(url, body, { withCredentials: true, responseType: 'text' }).subscribe(
-      (res) => {
-        this.response = res;
-      },
-      (error) => {
-        this.response = 'Failed to upload profile picture: ' + (error.error || error.message);
-      }
-    );
+      this.http.post('http://localhost:8081/api/auth/upload-profile-pic', formData, { 
+        withCredentials: true, 
+        responseType: 'text' 
+      }).subscribe({
+        next: (res) => {
+          console.log('Upload successful', res);
+          window.location.reload(); // Add this line
+        },
+        error: (err) => console.error('Upload failed', err)
+      });
+    }
   }
   
 

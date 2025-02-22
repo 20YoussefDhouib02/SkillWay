@@ -1,0 +1,34 @@
+.roadmap-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .roadmap-container .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .roadmap-container .error-message {
+    padding: 2rem;
+    color: #dc3545;
+    text-align: center;
+  }
+  
+  /* Example rendered element styling */
+.roadmap-node {
+    fill: #ffffff;
+    stroke: #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .connector-arrow {
+    stroke: #4a90e2;
+    stroke-dasharray: 5,5;
+  }

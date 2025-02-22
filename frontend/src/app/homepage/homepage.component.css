@@ -561,4 +561,17 @@
   
 
 
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .card-info {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card-info:hover {
+    transform: scale(1.05);
+  }
   

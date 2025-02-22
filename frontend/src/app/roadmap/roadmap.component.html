@@ -7,11 +7,14 @@
     <div class="content">
       <div class="roadmap">
         <h1>{{roadmapId}}/ {{ roadmapName }}
+          <span *ngIf="progressSum !== 0">
+            ({{ (progressSum / totalprogress * 100) | number:'1.0-0' }}%)
+          </span>
           <i class="fa-heart"
              [class.fa-solid]="isLoved()"
              [class.fa-regular]="!isLoved()"
              (click)="toggleLove($event)"
-             style="cursor: pointer; margin-left: 10px;"></i>
+             style="cursor: pointer; margin-left: 10px;" *ngIf="isLoggedIn()"></i>
         </h1>
         <i class="fa-solid fa-download" (click)="downloadPDF()"></i>
       </div>
@@ -27,6 +30,15 @@
     <div class="overlay" *ngIf="selectedItem">
     <div class="details-window" *ngIf="selectedItem">
       <button class="close-btn" (click)="closeWindow()">✖</button>
+      <div class="done-container" *ngIf="isLoggedIn()">
+        <input 
+          type="checkbox" 
+          id="doneCheckbox" 
+          [checked]="doneStates[data.indexOf(selectedItem)]"
+          (change)="onDoneChange(data.indexOf(selectedItem))"
+        >
+        <label for="doneCheckbox">Done</label>
+      </div>
       <h2>{{ selectedItem.title }}</h2>
       <hr>
       <p>{{ selectedItem.description }}</p>
