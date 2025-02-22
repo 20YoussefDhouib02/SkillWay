@@ -149,3 +149,66 @@ li i {
         font-size: 1.875rem;
     }
 }
+/* ===== Roadmap List Styles ===== */
+ul {
+    margin: 0 auto;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+}
+
+/* ===== Roadmap Card Styles ===== */
+li {
+    list-style-type: none;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0.75rem;
+    background-color: rgba(195, 198, 230, 0.04);
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* Remove the grid-related styles */
+/* Remove these media queries if you want vertical layout on all screens */
+@media (max-width: 768px) {
+    ul {
+        grid-template-columns: 1fr; /* Remove if completely removing grid */
+    }
+}
+li {
+    list-style-type: none;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0.75rem;
+    background-color: rgba(195, 198, 230, 0.04);
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+li .progress-percentage {
+    margin-left: auto; /* Pushes the percentage to the right */
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #F6F796; /* Optional: adjust color for better contrast */
+}
+
+/* (Optional) Style the roadmap details */
+li .roadmap-details {
+    display: flex;
+    flex-direction: column;
+}

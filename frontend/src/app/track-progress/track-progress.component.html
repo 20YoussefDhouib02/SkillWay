@@ -1,0 +1,62 @@
+<link 
+  rel="preconnect" 
+  href="https://fonts.googleapis.com"
+>
+<link 
+  rel="preconnect" 
+  href="https://fonts.gstatic.com" 
+  crossorigin
+>
+<link 
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Tektur:wght@400..900&display=swap" 
+  rel="stylesheet"
+>
+<link 
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
+  rel="stylesheet"
+>
+
+<div class="container">
+  <app-header 
+    class="header"
+  ></app-header>
+  
+  <div class="roadmaps-intro">
+    <h1>
+        Your SkillWay Roadmap Progress
+      </h1>
+      <p>
+        You're making great progress! Track your journey and see how far you've come with each milestone on your roadmap.
+      </p>
+      
+      
+  </div>
+
+  <div class="divider">
+    <h4>
+      Roadmaps
+    </h4>
+  </div>
+
+  <ul>
+    <ng-container *ngFor="let roadmap of roadmaps">
+      <li *ngIf="roadmap.progressSum !== 0 && roadmap.progressSum != null"
+          [routerLink]="['/roadmap', roadmap.name, roadmap.id]"
+          target="_blank"
+          class="glowing-card">
+        <i [class]="roadmap.icon"></i>
+        <span class="roadmap-details">
+          {{ roadmap.id }} {{ roadmap.name }}
+        </span>
+        <span class="progress-percentage">
+          {{ (roadmap.progressSum / roadmap.total * 100) | number: '1.0-0' }}%
+        </span>
+      </li>
+    </ng-container>
+  </ul>
+  
+  
+  <app-footer 
+    id="footer"
+  ></app-footer>
+</div>

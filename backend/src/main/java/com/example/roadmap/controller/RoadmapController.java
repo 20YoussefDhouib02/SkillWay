@@ -2,6 +2,7 @@ package com.example.roadmap.controller;
 
 import com.example.roadmap.model.Roadmap;
 import com.example.roadmap.model.User;
+import com.example.roadmap.repository.RoadmapRepository;
 import com.example.roadmap.service.RoadmapService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin(origins = "http://localhost:4200") 
 @RestController
@@ -20,9 +20,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public class RoadmapController {
 
     private final RoadmapService roadmapService;
+    private final RoadmapRepository roadmapRepository;
 
-    public RoadmapController(RoadmapService roadmapService) {
+
+    public RoadmapController(RoadmapService roadmapService,RoadmapRepository roadmapRepository) {
         this.roadmapService = roadmapService;
+        this.roadmapRepository = roadmapRepository;
     }
 
     /**
@@ -84,6 +87,12 @@ public class RoadmapController {
     public ResponseEntity<List<Roadmap>> getAllRoadmaps() {
         List<Roadmap> roadmaps = roadmapService.getAllRoadmaps();
         return ResponseEntity.ok(roadmaps); // Return all roadmaps as JSON
+    }
+    @GetMapping("/id/{id}")
+    public ResponseEntity<Roadmap> getRoadmapByIdd(@PathVariable Long id) {
+        Optional<Roadmap> roadmap = roadmapRepository.findById(id);
+        return roadmap.map(ResponseEntity::ok)
+                      .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     /**

@@ -178,3 +178,32 @@
     background-color: #cccaca88;
   }
   
+  .user-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+  
+  .user-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .user-container:hover .user-pic {
+    transform: scale(1.1);
+  }
+  
+  .username {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .user-container:hover .username {
+    color: #007bff;
+  }
+  

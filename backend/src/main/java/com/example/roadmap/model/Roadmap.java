@@ -12,6 +12,10 @@ public class Roadmap {
 
     @Column(unique = true, nullable = false) // Ensure the name is unique and not null
     private String name;
+    
+    @Column(nullable = false, columnDefinition = "integer default 0")
+    private Integer total = 0;  // Default value set to 0
+
 
     // Other fields (e.g., description, createdAt, etc.)
 }

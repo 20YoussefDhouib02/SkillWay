@@ -140,28 +140,63 @@ public class AuthController {
         return ResponseEntity.ok(user); // Return user details stored in session
     }
     
-    @PostMapping("/upload-profile-pic")
-public ResponseEntity<?> uploadProfilePic(@RequestBody Map<String, String> request, HttpSession session) {
+private static final String UPLOAD_DIR = "uploads/";
+@PostMapping("/upload-profile-pic")
+public ResponseEntity<?> uploadProfilePic(@RequestParam("file") MultipartFile file, HttpSession session) {
     User user = (User) session.getAttribute("user");
 
     if (user == null) {
         return ResponseEntity.status(403).body("Unauthorized: Please log in.");
     }
 
-    String imageUrl = request.get("profilePicture");
-    System.out.println("Received image URL: " + imageUrl);
-
-    if (imageUrl == null || imageUrl.isEmpty()) {
-        return ResponseEntity.badRequest().body("Image URL is required.");
+    if (file.isEmpty()) {
+        return ResponseEntity.badRequest().body("Please upload a valid file.");
     }
 
-    user.setProfilePicture(imageUrl);
-    userService.updateUser(user);  
+    try {
+        // Create directory if not exists
+        Path uploadPath = Paths.get(UPLOAD_DIR);
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
 
-    session.setAttribute("user", user);
+        // Sanitize filename
+        String originalFilename = file.getOriginalFilename();
+        if (originalFilename == null || originalFilename.isEmpty()) {
+            return ResponseEntity.badRequest().body("Invalid filename");
+        }
 
-    return ResponseEntity.ok("Profile picture updated successfully: " + imageUrl);
+        // Remove suspicious characters and sanitize
+        String sanitizedFilename = originalFilename
+            .replaceAll("\\s+", "_")          // Replace spaces with underscores
+            .replaceAll("[^a-zA-Z0-9-_.]", "") // Remove special characters
+            .replaceAll("-+", "-")            // Prevent multiple hyphens
+            .replaceAll("_{2,}", "_")         // Prevent multiple underscores
+            .replaceAll("\\.{2,}", ".");      // Prevent multiple dots
+
+        // Add timestamp for uniqueness
+        String timestamp = String.valueOf(System.currentTimeMillis());
+        String fileName = user.getId() + "_" + timestamp + "_" + sanitizedFilename;
+
+        // Save file to server
+        Path filePath = uploadPath.resolve(fileName);
+        Files.write(filePath, file.getBytes());
+
+        // Store image URL in user object
+        String fileUrl = "http://localhost:8081/uploads/" + fileName;
+        user.setProfilePicture(fileUrl);
+        userService.updateUser(user);
+
+        // Update session with new user info
+        session.setAttribute("user", user);
+
+        return ResponseEntity.ok("Profile picture uploaded successfully: " + fileUrl);
+    } catch (IOException e) {
+        return ResponseEntity.status(500).body("Error saving file: " + e.getMessage());
+    }
 }
+
+
 
     
 

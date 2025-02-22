@@ -41,7 +41,7 @@
   <section class="roadmaps">
     <h2>Explore Our Roadmaps</h2>
     <div class="cards">
-        <div class="card-info">
+        <div class="card-info" (click)="navigateToPage('/roadmap/cyber-security/9')">
 
             <div class="card-image">
               <img src="assets/images/cyber.jpg">
@@ -55,7 +55,7 @@
               <li>Learn the essential tools and strategies for protecting systems, networks, and data from cyber threats, including encryption, firewalls, ethical hacking, and risk management</li>
             </ul>
           </div>
-          <div class="card-info">
+          <div class="card-info" (click)="navigateToPage('/roadmap/ai-engineer/2')">
 
             <div class="card-image">
               <img src="assets/images/AI.webp" alt="AI Image">
@@ -70,8 +70,8 @@
             </ul>
           
           </div>
-          <div class="card-info">
-
+          <div class="card-info" (click)="navigateToPage('/roadmap/ai-data-scientist/1')">
+              
             <div class="card-image">
               <img src="assets/images/data.avif" alt="Data Science Image">
             </div>
