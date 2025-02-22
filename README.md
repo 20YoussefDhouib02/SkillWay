@@ -2,12 +2,11 @@
 
 <p align="center">
     <a href="https://github.com/20YoussefDhouib02/SkillWay">
-        <img src="./frontend/src/assets/images/SkillWay_logo.png" alt="SkillWay Logo" width="200">
+        <img src="./frontend/src/assets/images/SkillWay_logo.png" alt="SkillWay Logo">
     </a>
 </p>
 
 &nbsp;
-
 SkillWay is an e-learning platform designed to guide learners through detailed, well-structured roadmaps to master high-demand skills such as Artificial Intelligence, DevOps, Data Science, Cybersecurity, and more. Whether you’re starting out or looking to deepen your expertise, SkillWay provides step-by-step learning paths, downloadable PDFs for offline reference along with the possiblity of tracking your progress for a personalized learning experience.
 
 ## Table of Contents
