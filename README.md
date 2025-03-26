@@ -65,8 +65,6 @@ SkillWay is an e-learning platform designed to guide learners through detailed, 
 - **MySQL:** Full setup installed and running.
 - **Angular CLI:** For Angular management.
 
-(Optional) Install globally using `npm install -g @angular/cli`.
-
 ### Database Setup (MySQL)
 1. Install and launch MySQL.
 2. Note your MySQL username and password for configuration.
